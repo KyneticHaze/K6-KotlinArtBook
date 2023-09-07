@@ -82,8 +82,11 @@ class SecondActivity : AppCompatActivity() {
 
         if (selectedBitmap != null) {
             val smallBitmap = makeSmallerBitmap(selectedBitmap!!, 300)
+            // verileri biriktirmek için bir akış nesnesi oluşturduk
             val outputStream = ByteArrayOutputStream()
+            // bitmap tipindeki görselimizi compress ettik. Formatını belirledik, sıkıştırılma kalite yüzdesini, ve bellekte tutacak akış nesnesini belirledik
             smallBitmap.compress(Bitmap.CompressFormat.PNG, 50, outputStream)
+            // bitmap'i içinde tutan akış nesnesini byteArray'e çevirdik.
             val byteArray = outputStream.toByteArray()
 
             try {
